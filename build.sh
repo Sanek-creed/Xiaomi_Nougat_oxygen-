@@ -6,14 +6,14 @@ export CONFIG_FILE="miui_oxygen_defconfig"
 export ARCH=arm64
 export SUBARCH=arm64
 export LOCALVERSION="_${V}"
-export CROSS_COMPILE="${kernel_dir}/../../GCC/bin/aarch64-linux-android-"
+export CROSS_COMPILE="${kernel_dir}/../../gcc/bin/aarch64-linux-android-"
 export PATH=$PATH:${TOOL_CHAIN_PATH}
 export out_dir="${kernel_dir}/out/"
 export builddir="${kernel_dir}/Builds"
 export ANY_KERNEL2_DIR="${kernel_dir}/AnyKernel2"
 export ZIP_NAME="Hardrock-miui_OCv21beast.zip"
 export IMAGE="${out_dir}arch/arm64/boot/Image.gz-dtb";
-export STRIP_KO="${kernel_dir}/../../GCC/aarch64-linux-android/bin/strip"
+export STRIP_KO="${kernel_dir}/../../gcc/aarch64-linux-android/bin/strip"
 JOBS="-j$(nproc --all)"
 cd $kernel_dir
 
