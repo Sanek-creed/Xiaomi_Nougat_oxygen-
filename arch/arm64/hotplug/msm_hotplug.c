@@ -41,7 +41,7 @@
 #define DEFAULT_MAX_CPUS_ONLINE		NR_CPUS
 #define DEFAULT_FAST_LANE_LOAD		300
 #define DEFAULT_MAX_CPUS_ONLINE_SUSP	2
-//u64 get_cpu_idle_time(unsigned int cpu, u64 *wall, int io_busy);
+u64 get_cpu_idle_time(unsigned int cpu, u64 *wall, int io_busy);
 static unsigned int debug = 0;
 module_param_named(debug_mask, debug, uint, 0644);
 
