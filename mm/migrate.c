@@ -1088,6 +1088,7 @@ static int unmap_and_move(new_page_t get_new_page, free_page_t put_new_page,
 	int rc = 0;
 	int *result = NULL;
 	struct page *newpage = get_new_page(page, private, &result);
+	bool is_lru = !isolated_balloon_page(page);
 
 	if (!newpage)
 		return -ENOMEM;
@@ -1132,6 +1133,8 @@ out:
 	 * If migration is successful, releases reference grabbed during
 	 * isolation. Otherwise, restore the page to right list unless
 	 * we want to retry.
+	 * determine if we migrated a LRU page. newpage was already unlocked
+	 * and possibly modified by its owner - don't rely on the page state.
 	 */
 	if (rc == MIGRATEPAGE_SUCCESS) {
 		put_page(page);
